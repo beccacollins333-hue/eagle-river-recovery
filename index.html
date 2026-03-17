@@ -121,10 +121,15 @@
     .hero-bg {
       position: absolute;
       inset: 0;
+      background: url('assets/hero-vail.jpg') center center / cover no-repeat;
+    }
+
+    .hero-bg::after {
+      content: '';
+      position: absolute;
+      inset: 0;
       background:
-        radial-gradient(ellipse at 30% 40%, rgba(140, 198, 63, 0.08) 0%, transparent 60%),
-        radial-gradient(ellipse at 70% 60%, rgba(140, 198, 63, 0.05) 0%, transparent 50%),
-        linear-gradient(180deg, var(--navy) 0%, #002a4a 50%, #00354a 100%);
+        linear-gradient(180deg, rgba(0, 31, 56, 0.55) 0%, rgba(0, 31, 56, 0.4) 40%, rgba(0, 31, 56, 0.7) 100%);
     }
 
     .hero-mountains {
@@ -366,7 +371,7 @@
       position: relative;
       border-radius: 8px;
       overflow: hidden;
-      background: linear-gradient(135deg, var(--navy) 0%, #003050 100%);
+      background: url('assets/about-mountains.jpg') center center / cover no-repeat;
       aspect-ratio: 4/5;
       display: flex;
       flex-direction: column;
@@ -377,7 +382,7 @@
     .about-visual svg {
       width: 50%;
       max-width: 200px;
-      opacity: 0.15;
+      opacity: 0;
     }
 
     .about-visual-overlay {
@@ -386,7 +391,7 @@
       left: 0;
       right: 0;
       padding: 2.5rem;
-      background: linear-gradient(to top, rgba(0, 31, 56, 0.95), transparent);
+      background: linear-gradient(to top, rgba(0, 31, 56, 0.95) 0%, rgba(0, 31, 56, 0.6) 50%, transparent 100%);
     }
 
     .about-visual-overlay p {
@@ -454,7 +459,7 @@
       background: var(--white);
       border: 1px solid var(--border);
       border-radius: 8px;
-      padding: 2.5rem 2rem;
+      padding: 0 2rem 2.5rem;
       transition: all 0.35s ease;
       position: relative;
       overflow: hidden;
@@ -479,6 +484,14 @@
 
     .service-card:hover::before { transform: scaleX(1); }
 
+    .service-photo {
+      width: calc(100% + 4rem);
+      margin: 0 -2rem 1.5rem;
+      height: 200px;
+      object-fit: cover;
+      display: block;
+    }
+
     .service-icon {
       width: 52px;
       height: 52px;
@@ -488,6 +501,7 @@
       align-items: center;
       justify-content: center;
       margin-bottom: 1.5rem;
+      display: none;
     }
 
     .service-icon svg {
@@ -1148,6 +1162,7 @@
     </div>
     <div class="services-grid">
       <div class="service-card fade-up">
+        <img src="assets/sauna-1.jpg" alt="Infrared heat therapy for deep relaxation" class="service-photo">
         <div class="service-icon">
           <svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="4"/><path d="M12 2v4M12 18v4M4.93 4.93l2.83 2.83M16.24 16.24l2.83 2.83M2 12h4M18 12h4M4.93 19.07l2.83-2.83M16.24 7.76l2.83-2.83"/></svg>
         </div>
@@ -1162,6 +1177,7 @@
         </ul>
       </div>
       <div class="service-card fade-up">
+        <img src="assets/massage-1.jpg" alt="PEMF therapy for cellular repair and pain relief" class="service-photo">
         <div class="service-icon">
           <svg viewBox="0 0 24 24"><path d="M13 2L3 14h9l-1 8 10-12h-9l1-8z"/></svg>
         </div>
@@ -1176,6 +1192,7 @@
         </ul>
       </div>
       <div class="service-card fade-up">
+        <img src="assets/runner-legs.jpg" alt="Compression boots for leg recovery" class="service-photo">
         <div class="service-icon">
           <svg viewBox="0 0 24 24"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>
         </div>
