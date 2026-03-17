@@ -1,0 +1,1409 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Eagle River Recovery | Mobile Wellness & Recovery | Vail, Colorado</title>
+  <meta name="description" content="Premium mobile wellness and recovery delivered to your Vail/Beaver Creek hotel, condo, or mountain home. PEMF, infrared sauna, compression therapy. Serving the Eagle River Valley from Vail to Gypsum.">
+  <meta property="og:title" content="Eagle River Recovery | Mobile Wellness & Recovery">
+  <meta property="og:description" content="Premium, science-backed recovery delivered to your door in Vail and the Eagle River Valley.">
+  <meta property="og:type" content="website">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,500;0,600;0,700;1,400;1,500&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
+  <style>
+    *, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
+
+    :root {
+      --navy: #001f38;
+      --navy-90: rgba(0, 31, 56, 0.9);
+      --green: #8cc63f;
+      --green-dark: #6fa832;
+      --green-light: #a3d462;
+      --cream: #f7f5f0;
+      --white: #ffffff;
+      --text: #1a2a3a;
+      --text-light: #5a6a7a;
+      --border: #e2ddd4;
+    }
+
+    html { scroll-behavior: smooth; }
+
+    body {
+      font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+      color: var(--text);
+      line-height: 1.6;
+      background: var(--white);
+      -webkit-font-smoothing: antialiased;
+    }
+
+    /* ===== NAV ===== */
+    nav {
+      position: fixed;
+      top: 0;
+      width: 100%;
+      z-index: 1000;
+      padding: 1.25rem 2rem;
+      transition: all 0.35s ease;
+    }
+
+    nav.scrolled {
+      background: var(--navy-90);
+      backdrop-filter: blur(12px);
+      padding: 0.75rem 2rem;
+      box-shadow: 0 4px 30px rgba(0, 31, 56, 0.2);
+    }
+
+    .nav-inner {
+      max-width: 1200px;
+      margin: 0 auto;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+
+    .nav-logo { display: flex; align-items: center; text-decoration: none; }
+    .nav-logo svg { height: 36px; width: auto; }
+    nav.scrolled .nav-logo svg { height: 30px; }
+
+    .nav-links {
+      display: flex;
+      align-items: center;
+      gap: 2rem;
+      list-style: none;
+    }
+
+    .nav-links a {
+      color: rgba(255,255,255,0.85);
+      text-decoration: none;
+      font-size: 0.8rem;
+      font-weight: 400;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      transition: color 0.3s;
+    }
+
+    .nav-links a:hover { color: var(--green); }
+
+    .nav-cta-link .btn { padding: 0.5rem 1.25rem; font-size: 0.8rem; }
+
+    .mobile-menu-btn {
+      display: none;
+      background: none;
+      border: none;
+      cursor: pointer;
+      padding: 0.5rem;
+      z-index: 1001;
+    }
+
+    .mobile-menu-btn span {
+      display: block;
+      width: 24px;
+      height: 2px;
+      background: var(--white);
+      margin: 5px 0;
+      transition: 0.3s;
+      border-radius: 2px;
+    }
+
+    /* ===== HERO ===== */
+    .hero {
+      position: relative;
+      min-height: 100vh;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      text-align: center;
+      overflow: hidden;
+      background: var(--navy);
+    }
+
+    .hero-bg {
+      position: absolute;
+      inset: 0;
+      background:
+        radial-gradient(ellipse at 30% 40%, rgba(140, 198, 63, 0.08) 0%, transparent 60%),
+        radial-gradient(ellipse at 70% 60%, rgba(140, 198, 63, 0.05) 0%, transparent 50%),
+        linear-gradient(180deg, var(--navy) 0%, #002a4a 50%, #00354a 100%);
+    }
+
+    .hero-mountains {
+      position: absolute;
+      bottom: 0;
+      left: 0;
+      right: 0;
+      pointer-events: none;
+    }
+
+    .hero-content {
+      position: relative;
+      z-index: 2;
+      max-width: 850px;
+      padding: 6rem 2rem 8rem;
+    }
+
+    .hero-icon {
+      margin-bottom: 2rem;
+    }
+
+    .hero-icon svg {
+      height: 60px;
+      width: auto;
+      filter: drop-shadow(0 2px 10px rgba(140, 198, 63, 0.3));
+    }
+
+    .hero-badge {
+      display: inline-block;
+      font-size: 0.7rem;
+      letter-spacing: 0.3em;
+      text-transform: uppercase;
+      color: var(--green);
+      border: 1px solid rgba(140, 198, 63, 0.3);
+      padding: 0.5rem 1.75rem;
+      border-radius: 30px;
+      margin-bottom: 2rem;
+      font-weight: 500;
+    }
+
+    .hero h1 {
+      font-family: 'Playfair Display', serif;
+      font-size: clamp(2.75rem, 6vw, 4.5rem);
+      font-weight: 600;
+      color: var(--white);
+      line-height: 1.15;
+      margin-bottom: 1.5rem;
+    }
+
+    .hero h1 em {
+      font-style: italic;
+      color: var(--green);
+    }
+
+    .hero p {
+      font-size: 1.1rem;
+      color: rgba(255,255,255,0.7);
+      max-width: 620px;
+      margin: 0 auto 2.5rem;
+      font-weight: 300;
+      line-height: 1.8;
+    }
+
+    .hero-buttons {
+      display: flex;
+      gap: 1rem;
+      justify-content: center;
+      flex-wrap: wrap;
+    }
+
+    .btn {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      padding: 0.875rem 2rem;
+      border-radius: 4px;
+      font-size: 0.85rem;
+      font-weight: 500;
+      text-decoration: none;
+      letter-spacing: 0.06em;
+      text-transform: uppercase;
+      transition: all 0.3s ease;
+      cursor: pointer;
+      border: none;
+      gap: 0.5rem;
+    }
+
+    .btn-primary {
+      background: var(--green);
+      color: var(--navy);
+    }
+
+    .btn-primary:hover {
+      background: var(--green-light);
+      transform: translateY(-2px);
+      box-shadow: 0 6px 20px rgba(140, 198, 63, 0.35);
+    }
+
+    .btn-outline {
+      border: 1px solid rgba(255,255,255,0.3);
+      color: var(--white);
+      background: transparent;
+    }
+
+    .btn-outline:hover {
+      border-color: var(--green);
+      color: var(--green);
+    }
+
+    .btn-dark {
+      background: var(--navy);
+      color: var(--white);
+    }
+
+    .btn-dark:hover {
+      background: #002a4a;
+      transform: translateY(-2px);
+      box-shadow: 0 6px 20px rgba(0, 31, 56, 0.3);
+    }
+
+    .scroll-indicator {
+      position: absolute;
+      bottom: 2rem;
+      left: 50%;
+      transform: translateX(-50%);
+      z-index: 2;
+      animation: bounce 2.5s infinite;
+    }
+
+    .scroll-indicator svg {
+      width: 20px;
+      height: 20px;
+      stroke: rgba(140, 198, 63, 0.5);
+      stroke-width: 2;
+      fill: none;
+    }
+
+    @keyframes bounce {
+      0%, 20%, 50%, 80%, 100% { transform: translateX(-50%) translateY(0); }
+      40% { transform: translateX(-50%) translateY(-8px); }
+      60% { transform: translateX(-50%) translateY(-4px); }
+    }
+
+    /* ===== SECTIONS ===== */
+    section { padding: 6rem 2rem; }
+
+    .section-header {
+      text-align: center;
+      max-width: 650px;
+      margin: 0 auto 4rem;
+    }
+
+    .section-label {
+      font-size: 0.7rem;
+      letter-spacing: 0.3em;
+      text-transform: uppercase;
+      color: var(--green);
+      margin-bottom: 1rem;
+      display: block;
+      font-weight: 600;
+    }
+
+    .section-header h2 {
+      font-family: 'Playfair Display', serif;
+      font-size: clamp(2rem, 4vw, 2.75rem);
+      font-weight: 600;
+      color: var(--navy);
+      margin-bottom: 1rem;
+      line-height: 1.2;
+    }
+
+    .section-header p {
+      color: var(--text-light);
+      font-size: 1rem;
+      font-weight: 300;
+      line-height: 1.7;
+    }
+
+    /* ===== INTRO BAR ===== */
+    .intro-bar {
+      background: var(--navy);
+      padding: 3rem 2rem;
+    }
+
+    .intro-grid {
+      max-width: 1000px;
+      margin: 0 auto;
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 2rem;
+      text-align: center;
+    }
+
+    .intro-item h3 {
+      font-family: 'Playfair Display', serif;
+      font-size: 1.1rem;
+      color: var(--white);
+      margin-bottom: 0.5rem;
+    }
+
+    .intro-item p {
+      font-size: 0.85rem;
+      color: rgba(255,255,255,0.55);
+      font-weight: 300;
+    }
+
+    .intro-item .intro-icon {
+      width: 44px;
+      height: 44px;
+      border: 1px solid rgba(140, 198, 63, 0.3);
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      margin: 0 auto 1rem;
+    }
+
+    .intro-item .intro-icon svg {
+      width: 20px;
+      height: 20px;
+      stroke: var(--green);
+      fill: none;
+      stroke-width: 1.5;
+    }
+
+    /* ===== ABOUT ===== */
+    .about { background: var(--white); }
+
+    .about-grid {
+      max-width: 1100px;
+      margin: 0 auto;
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 5rem;
+      align-items: center;
+    }
+
+    .about-visual {
+      position: relative;
+      border-radius: 8px;
+      overflow: hidden;
+      background: linear-gradient(135deg, var(--navy) 0%, #003050 100%);
+      aspect-ratio: 4/5;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+    }
+
+    .about-visual svg {
+      width: 50%;
+      max-width: 200px;
+      opacity: 0.15;
+    }
+
+    .about-visual-overlay {
+      position: absolute;
+      bottom: 0;
+      left: 0;
+      right: 0;
+      padding: 2.5rem;
+      background: linear-gradient(to top, rgba(0, 31, 56, 0.95), transparent);
+    }
+
+    .about-visual-overlay p {
+      color: var(--green);
+      font-family: 'Playfair Display', serif;
+      font-size: 1.4rem;
+      font-style: italic;
+      line-height: 1.4;
+    }
+
+    .about-text h3 {
+      font-family: 'Playfair Display', serif;
+      font-size: 2rem;
+      color: var(--navy);
+      margin-bottom: 1.5rem;
+      line-height: 1.3;
+    }
+
+    .about-text p {
+      color: var(--text-light);
+      margin-bottom: 1.25rem;
+      font-weight: 300;
+      line-height: 1.8;
+      font-size: 0.95rem;
+    }
+
+    .about-stats {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 1.5rem;
+      margin-top: 2.5rem;
+      padding-top: 2rem;
+      border-top: 1px solid var(--border);
+    }
+
+    .stat-item { text-align: center; }
+
+    .stat-item .number {
+      font-family: 'Playfair Display', serif;
+      font-size: 2rem;
+      font-weight: 700;
+      color: var(--green-dark);
+    }
+
+    .stat-item .label {
+      font-size: 0.7rem;
+      color: var(--text-light);
+      text-transform: uppercase;
+      letter-spacing: 0.12em;
+      margin-top: 0.25rem;
+    }
+
+    /* ===== SERVICES ===== */
+    .services { background: var(--cream); }
+
+    .services-grid {
+      max-width: 1100px;
+      margin: 0 auto;
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 2rem;
+    }
+
+    .service-card {
+      background: var(--white);
+      border: 1px solid var(--border);
+      border-radius: 8px;
+      padding: 2.5rem 2rem;
+      transition: all 0.35s ease;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .service-card::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 0;
+      right: 0;
+      height: 3px;
+      background: var(--green);
+      transform: scaleX(0);
+      transition: transform 0.35s ease;
+    }
+
+    .service-card:hover {
+      transform: translateY(-6px);
+      box-shadow: 0 16px 48px rgba(0, 31, 56, 0.08);
+    }
+
+    .service-card:hover::before { transform: scaleX(1); }
+
+    .service-icon {
+      width: 52px;
+      height: 52px;
+      background: var(--navy);
+      border-radius: 10px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      margin-bottom: 1.5rem;
+    }
+
+    .service-icon svg {
+      width: 24px;
+      height: 24px;
+      stroke: var(--green);
+      fill: none;
+      stroke-width: 1.5;
+    }
+
+    .service-card h3 {
+      font-family: 'Playfair Display', serif;
+      font-size: 1.3rem;
+      color: var(--navy);
+      margin-bottom: 0.4rem;
+    }
+
+    .service-brand {
+      font-size: 0.7rem;
+      color: var(--green-dark);
+      text-transform: uppercase;
+      letter-spacing: 0.12em;
+      margin-bottom: 1rem;
+      font-weight: 600;
+    }
+
+    .service-card p {
+      color: var(--text-light);
+      font-size: 0.9rem;
+      font-weight: 300;
+      line-height: 1.75;
+    }
+
+    .service-benefits {
+      list-style: none;
+      margin-top: 1.5rem;
+      padding-top: 1.5rem;
+      border-top: 1px solid var(--border);
+    }
+
+    .service-benefits li {
+      font-size: 0.85rem;
+      color: var(--text);
+      padding: 0.4rem 0;
+      padding-left: 1.5rem;
+      position: relative;
+      font-weight: 400;
+    }
+
+    .service-benefits li::before {
+      content: '';
+      position: absolute;
+      left: 0;
+      top: 0.85rem;
+      width: 6px;
+      height: 6px;
+      background: var(--green);
+      border-radius: 50%;
+    }
+
+    /* ===== HOW IT WORKS ===== */
+    .how-it-works {
+      background: var(--navy);
+      color: var(--white);
+    }
+
+    .how-it-works .section-header h2 { color: var(--white); }
+    .how-it-works .section-header p { color: rgba(255,255,255,0.55); }
+
+    .steps {
+      max-width: 900px;
+      margin: 0 auto;
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 2rem;
+      position: relative;
+    }
+
+    .steps::before {
+      content: '';
+      position: absolute;
+      top: 26px;
+      left: 14%;
+      right: 14%;
+      height: 1px;
+      background: linear-gradient(to right, transparent, rgba(140, 198, 63, 0.4), rgba(140, 198, 63, 0.4), transparent);
+    }
+
+    .step { text-align: center; position: relative; }
+
+    .step-number {
+      width: 52px;
+      height: 52px;
+      border: 2px solid var(--green);
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      margin: 0 auto 1.25rem;
+      font-family: 'Playfair Display', serif;
+      font-size: 1.15rem;
+      font-weight: 700;
+      color: var(--green);
+      background: var(--navy);
+      position: relative;
+      z-index: 1;
+    }
+
+    .step h4 {
+      font-size: 0.9rem;
+      font-weight: 500;
+      margin-bottom: 0.5rem;
+    }
+
+    .step p {
+      font-size: 0.8rem;
+      color: rgba(255,255,255,0.5);
+      font-weight: 300;
+      line-height: 1.65;
+    }
+
+    /* ===== PRICING ===== */
+    .pricing { background: var(--white); }
+
+    .pricing-grid {
+      max-width: 1100px;
+      margin: 0 auto;
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 2rem;
+      align-items: start;
+    }
+
+    .pricing-card {
+      background: var(--white);
+      border-radius: 8px;
+      padding: 2.5rem 2rem;
+      text-align: center;
+      border: 1px solid var(--border);
+      transition: all 0.35s ease;
+      position: relative;
+    }
+
+    .pricing-card:hover {
+      transform: translateY(-4px);
+      box-shadow: 0 12px 40px rgba(0, 31, 56, 0.06);
+    }
+
+    .pricing-card.featured {
+      border-color: var(--green);
+      box-shadow: 0 12px 40px rgba(140, 198, 63, 0.12);
+    }
+
+    .pricing-badge {
+      position: absolute;
+      top: -12px;
+      left: 50%;
+      transform: translateX(-50%);
+      background: var(--green);
+      color: var(--navy);
+      font-size: 0.65rem;
+      font-weight: 600;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      padding: 0.35rem 1.25rem;
+      border-radius: 20px;
+      white-space: nowrap;
+    }
+
+    .pricing-card h3 {
+      font-family: 'Playfair Display', serif;
+      font-size: 1.4rem;
+      color: var(--navy);
+      margin-bottom: 0.35rem;
+    }
+
+    .pricing-card .duration {
+      font-size: 0.8rem;
+      color: var(--text-light);
+      margin-bottom: 1.5rem;
+    }
+
+    .pricing-card .price {
+      font-family: 'Playfair Display', serif;
+      font-size: 3rem;
+      font-weight: 700;
+      color: var(--navy);
+      line-height: 1;
+      margin-bottom: 0.25rem;
+    }
+
+    .pricing-card .price-note {
+      font-size: 0.8rem;
+      color: var(--text-light);
+      margin-bottom: 2rem;
+    }
+
+    .pricing-features {
+      list-style: none;
+      text-align: left;
+      margin-bottom: 2rem;
+    }
+
+    .pricing-features li {
+      padding: 0.5rem 0;
+      font-size: 0.875rem;
+      color: var(--text);
+      border-bottom: 1px solid #f0ebe3;
+      display: flex;
+      align-items: center;
+      gap: 0.75rem;
+    }
+
+    .check-icon {
+      width: 16px;
+      height: 16px;
+      stroke: var(--green);
+      fill: none;
+      stroke-width: 2.5;
+      flex-shrink: 0;
+    }
+
+    .pricing-card .btn { width: 100%; justify-content: center; }
+
+    /* ===== ADD-ONS ===== */
+    .addons { background: var(--cream); }
+
+    .addons-grid {
+      max-width: 800px;
+      margin: 0 auto;
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 1rem;
+    }
+
+    .addon-item {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 1.25rem 1.5rem;
+      background: var(--white);
+      border-radius: 8px;
+      border: 1px solid var(--border);
+      transition: box-shadow 0.3s;
+    }
+
+    .addon-item:hover { box-shadow: 0 4px 16px rgba(0,0,0,0.04); }
+
+    .addon-item h4 {
+      font-size: 0.9rem;
+      color: var(--navy);
+      font-weight: 500;
+    }
+
+    .addon-item p {
+      font-size: 0.75rem;
+      color: var(--text-light);
+      margin-top: 0.15rem;
+    }
+
+    .addon-price {
+      font-family: 'Playfair Display', serif;
+      font-size: 1.25rem;
+      font-weight: 700;
+      color: var(--green-dark);
+      white-space: nowrap;
+      margin-left: 1rem;
+    }
+
+    /* ===== SERVICE AREA ===== */
+    .service-area { background: var(--white); }
+
+    .area-content {
+      max-width: 900px;
+      margin: 0 auto;
+      text-align: center;
+    }
+
+    .area-map {
+      max-width: 600px;
+      margin: 0 auto 2rem;
+      background: var(--cream);
+      border-radius: 12px;
+      padding: 3rem;
+      border: 1px solid var(--border);
+    }
+
+    .area-map h3 {
+      font-family: 'Playfair Display', serif;
+      font-size: 1.5rem;
+      color: var(--navy);
+      margin-bottom: 0.5rem;
+    }
+
+    .area-map p {
+      color: var(--text-light);
+      font-size: 0.9rem;
+    }
+
+    .area-towns {
+      display: flex;
+      justify-content: center;
+      flex-wrap: wrap;
+      gap: 0.75rem;
+      margin-top: 2rem;
+    }
+
+    .area-tag {
+      background: var(--white);
+      border: 1px solid var(--border);
+      padding: 0.6rem 1.5rem;
+      border-radius: 30px;
+      font-size: 0.85rem;
+      color: var(--navy);
+      font-weight: 400;
+      transition: all 0.3s;
+    }
+
+    .area-tag:hover {
+      border-color: var(--green);
+      color: var(--green-dark);
+    }
+
+    .area-note {
+      margin-top: 2rem;
+      color: var(--text-light);
+      font-size: 0.85rem;
+      font-weight: 300;
+    }
+
+    /* ===== TESTIMONIAL ===== */
+    .testimonial-section {
+      background: linear-gradient(135deg, var(--navy) 0%, #003050 100%);
+      text-align: center;
+      padding: 5rem 2rem;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .testimonial-section::before {
+      content: '';
+      position: absolute;
+      top: -50%;
+      right: -20%;
+      width: 60%;
+      height: 200%;
+      background: radial-gradient(ellipse, rgba(140, 198, 63, 0.04) 0%, transparent 70%);
+    }
+
+    .testimonial-content {
+      max-width: 650px;
+      margin: 0 auto;
+      position: relative;
+    }
+
+    .quote-mark {
+      font-family: 'Playfair Display', serif;
+      font-size: 5rem;
+      color: rgba(140, 198, 63, 0.2);
+      line-height: 1;
+      margin-bottom: -1rem;
+    }
+
+    .testimonial-content blockquote {
+      font-family: 'Playfair Display', serif;
+      font-size: clamp(1.25rem, 2.5vw, 1.75rem);
+      font-style: italic;
+      color: var(--white);
+      line-height: 1.6;
+      margin-bottom: 1.5rem;
+    }
+
+    .testimonial-content cite {
+      color: var(--green);
+      font-style: normal;
+      font-size: 0.85rem;
+      letter-spacing: 0.05em;
+    }
+
+    /* ===== CTA ===== */
+    .cta-section {
+      background: var(--navy);
+      text-align: center;
+      padding: 6rem 2rem;
+      position: relative;
+    }
+
+    .cta-section::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 0;
+      right: 0;
+      height: 1px;
+      background: linear-gradient(to right, transparent, rgba(140, 198, 63, 0.3), transparent);
+    }
+
+    .cta-section h2 {
+      font-family: 'Playfair Display', serif;
+      font-size: clamp(2rem, 4vw, 2.75rem);
+      color: var(--white);
+      margin-bottom: 1rem;
+    }
+
+    .cta-section > p {
+      color: rgba(255,255,255,0.6);
+      margin-bottom: 2.5rem;
+      font-weight: 300;
+      max-width: 500px;
+      margin-left: auto;
+      margin-right: auto;
+      font-size: 1rem;
+    }
+
+    .cta-contact {
+      display: flex;
+      justify-content: center;
+      gap: 2.5rem;
+      margin-top: 2.5rem;
+      flex-wrap: wrap;
+    }
+
+    .cta-contact a {
+      color: rgba(255,255,255,0.6);
+      text-decoration: none;
+      font-size: 0.9rem;
+      display: flex;
+      align-items: center;
+      gap: 0.5rem;
+      transition: color 0.3s;
+    }
+
+    .cta-contact a:hover { color: var(--green); }
+
+    .cta-contact svg {
+      width: 18px;
+      height: 18px;
+      stroke: var(--green);
+      fill: none;
+      stroke-width: 1.5;
+    }
+
+    /* ===== FOOTER ===== */
+    footer {
+      background: #00152a;
+      padding: 2.5rem 2rem;
+    }
+
+    .footer-inner {
+      max-width: 1100px;
+      margin: 0 auto;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      flex-wrap: wrap;
+      gap: 1rem;
+    }
+
+    .footer-logo { display: flex; align-items: center; }
+    .footer-logo svg { height: 28px; width: auto; opacity: 0.7; }
+
+    .footer-text {
+      font-size: 0.75rem;
+      color: rgba(255,255,255,0.3);
+    }
+
+    .footer-links {
+      display: flex;
+      gap: 1.5rem;
+      list-style: none;
+    }
+
+    .footer-links a {
+      color: rgba(255,255,255,0.4);
+      text-decoration: none;
+      font-size: 0.75rem;
+      transition: color 0.3s;
+      letter-spacing: 0.03em;
+    }
+
+    .footer-links a:hover { color: var(--green); }
+
+    /* ===== MOBILE ===== */
+    @media (max-width: 768px) {
+      .nav-links { display: none; }
+      .nav-links.active {
+        display: flex;
+        flex-direction: column;
+        position: absolute;
+        top: 100%;
+        left: 0;
+        right: 0;
+        background: var(--navy-90);
+        backdrop-filter: blur(12px);
+        padding: 1.5rem 2rem 2rem;
+        gap: 1.25rem;
+      }
+      .mobile-menu-btn { display: block; }
+      .intro-grid { grid-template-columns: 1fr; gap: 1.5rem; }
+      .about-grid { grid-template-columns: 1fr; gap: 3rem; }
+      .about-visual { aspect-ratio: 16/9; }
+      .services-grid { grid-template-columns: 1fr; max-width: 450px; margin-left: auto; margin-right: auto; }
+      .steps { grid-template-columns: 1fr 1fr; }
+      .steps::before { display: none; }
+      .pricing-grid { grid-template-columns: 1fr; max-width: 400px; margin-left: auto; margin-right: auto; }
+      .addons-grid { grid-template-columns: 1fr; }
+      .cta-contact { flex-direction: column; gap: 1rem; align-items: center; }
+      .footer-inner { flex-direction: column; text-align: center; gap: 1.5rem; }
+      .footer-links { gap: 1rem; }
+      section { padding: 4rem 1.5rem; }
+    }
+
+    @media (max-width: 480px) {
+      .about-stats { grid-template-columns: repeat(3, 1fr); gap: 1rem; }
+      .stat-item .number { font-size: 1.5rem; }
+      .hero-content { padding: 5rem 1.5rem 6rem; }
+    }
+
+    /* ===== ANIMATIONS ===== */
+    .fade-up {
+      opacity: 0;
+      transform: translateY(24px);
+      transition: opacity 0.7s ease, transform 0.7s ease;
+    }
+
+    .fade-up.visible {
+      opacity: 1;
+      transform: translateY(0);
+    }
+
+    .fade-up:nth-child(2) { transition-delay: 0.1s; }
+    .fade-up:nth-child(3) { transition-delay: 0.2s; }
+  </style>
+</head>
+<body>
+
+  <!-- NAV -->
+  <nav id="nav">
+    <div class="nav-inner">
+      <a href="#" class="nav-logo">
+        <!-- Asset 5: Full logo white text + green icon -->
+        <svg viewBox="0 0 316.3 97.27" xmlns="http://www.w3.org/2000/svg">
+          <g><path fill="#fff" d="M105.45,20.94h16.71v5.54h-10.86v3.93h8.67v5.57h-8.67v4.49h10.86v5.53h-16.71v-25.06Z"/><path fill="#fff" d="M138.91,40.92h-7.31l-1.39,5.08h-6.06l7.8-25.06h6.82l7.8,25.06h-6.3l-1.36-5.08ZM137.44,35.38l-2.12-8.01-2.19,8.01h4.32Z"/><path fill="#fff" d="M161.08,29.32v-2.3c0-.46-.26-.7-.77-.7h-5.26c-.49,0-.73.23-.73.7v12.84c0,.49.24.73.73.73h5.26c.51,0,.77-.23.77-.7v-2.99h-4v-5.26h9.85v9.57c0,1.44-.46,2.62-1.39,3.55-.9.9-2.09,1.36-3.55,1.36h-8.6c-1.46,0-2.65-.45-3.55-1.36-.93-.93-1.39-2.11-1.39-3.55v-15.53c0-1.44.46-2.62,1.39-3.55s2.11-1.39,3.55-1.39h8.6c1.44,0,2.62.46,3.55,1.39s1.39,2.11,1.39,3.55v3.62h-5.85Z"/><path fill="#fff" d="M171.31,20.94h5.85v19.53h9.99v5.53h-15.84v-25.06Z"/><path fill="#fff" d="M190.53,20.94h16.71v5.54h-10.86v3.93h8.67v5.57h-8.67v4.49h10.86v5.53h-16.71v-25.06Z"/><path fill="#fff" d="M239.37,46l-6.2-.07-3.59-8.91h-3.1v8.91h-5.85v-25.06h13.12c1.44,0,2.61.46,3.52,1.39.9.93,1.36,2.11,1.36,3.55v6.3c0,1.07-.28,2.02-.84,2.85-.56.84-1.3,1.43-2.23,1.78l3.79,9.26ZM232.82,30.86v-3.76c0-.46-.24-.7-.73-.7h-5.6v5.15h5.6c.49,0,.73-.23.73-.7Z"/><path fill="#fff" d="M243.13,46v-25.06h5.85v25.06h-5.85Z"/><path fill="#fff" d="M273.62,20.94l-7.42,25.06h-6.75l-7.41-25.06h6.72l4.07,17.96,4.21-17.96h6.58Z"/><path fill="#fff" d="M276.65,20.94h16.71v5.54h-10.86v3.93h8.67v5.57h-8.67v4.49h10.86v5.53h-16.71v-25.06Z"/><path fill="#fff" d="M316.3,46l-6.2-.07-3.59-8.91h-3.1v8.91h-5.85v-25.06h13.12c1.44,0,2.61.46,3.52,1.39.9.93,1.36,2.11,1.36,3.55v6.3c0,1.07-.28,2.02-.84,2.85-.56.84-1.3,1.43-2.23,1.78l3.79,9.26ZM309.75,30.86v-3.76c0-.46-.24-.7-.73-.7h-5.6v5.15h5.6c.49,0,.73-.23.73-.7Z"/><path fill="#fff" d="M124.25,78.99l-6.2-.07-3.59-8.91h-3.1v8.91h-5.85v-25.06h13.12c1.44,0,2.61.46,3.52,1.39.9.93,1.36,2.11,1.36,3.55v6.3c0,1.07-.28,2.02-.84,2.85-.56.84-1.3,1.43-2.23,1.78l3.79,9.26ZM117.71,63.85v-3.76c0-.46-.24-.7-.73-.7h-5.6v5.15h5.6c.49,0,.73-.23.73-.7Z"/><path fill="#fff" d="M128.01,53.93h16.71v5.54h-10.86v3.93h8.67v5.57h-8.67v4.49h10.86v5.53h-16.71v-25.06Z"/><path fill="#fff" d="M161.22,79.1h-8.28c-1.46,0-2.65-.45-3.55-1.36-.93-.93-1.39-2.11-1.39-3.55v-15.53c0-1.44.46-2.62,1.39-3.55.93-.93,2.11-1.39,3.55-1.39h8.28c1.44,0,2.62.46,3.55,1.39.93.93,1.39,2.11,1.39,3.55v4.53h-5.85v-3.2c0-.46-.24-.7-.73-.7h-4.94c-.49,0-.73.23-.73.7v12.88c0,.46.24.7.73.7h4.94c.49,0,.73-.23.73-.7v-3.2h5.85v4.53c0,1.44-.46,2.62-1.39,3.55-.9.91-2.09,1.36-3.55,1.36Z"/><path fill="#fff" d="M183.25,79.1h-8.74c-1.46,0-2.65-.45-3.55-1.36-.93-.93-1.39-2.11-1.39-3.55v-15.53c0-1.44.46-2.62,1.39-3.55.93-.93,2.11-1.39,3.55-1.39h8.74c1.44,0,2.61.46,3.52,1.39.9.93,1.36,2.11,1.36,3.55v15.53c0,1.44-.45,2.62-1.36,3.55-.88.91-2.05,1.36-3.52,1.36ZM175.46,60.02v12.88c0,.46.24.7.73.7h5.4c.49,0,.73-.23.73-.7v-12.88c0-.46-.24-.7-.73-.7h-5.4c-.49,0-.73.23-.73.7Z"/><path fill="#fff" d="M211.83,53.93l-7.42,25.06h-6.75l-7.41-25.06h6.72l4.07,17.96,4.21-17.96h6.58Z"/><path fill="#fff" d="M214.86,53.93h16.71v5.54h-10.86v3.93h8.67v5.57h-8.67v4.49h10.86v5.53h-16.71v-25.06Z"/><path fill="#fff" d="M254.51,78.99l-6.2-.07-3.59-8.91h-3.1v8.91h-5.85v-25.06h13.12c1.44,0,2.61.46,3.52,1.39.9.93,1.36,2.11,1.36,3.55v6.3c0,1.07-.28,2.02-.84,2.85-.56.84-1.3,1.43-2.23,1.78l3.79,9.26ZM247.97,63.85v-3.76c0-.46-.24-.7-.73-.7h-5.6v5.15h5.6c.49,0,.73-.23.73-.7Z"/><path fill="#fff" d="M268.78,78.99h-5.85v-8.46l-7.41-16.6h6.37l3.97,10.06,3.97-10.06h6.37l-7.42,16.6v8.46Z"/></g>
+          <g><path fill="#8cc63f" d="M59.25,15.51c3.84,3.21,10.45,1.99,12.69-2.54,1.52-2.63,1.46-6.04-.11-8.63-1.59-3.21-5.47-4.87-8.94-4.18-3.89.7-7.03,4.48-6.84,8.46-.12,2.63,1.11,5.28,3.2,6.89Z"/><polygon fill="#8cc63f" points="34.08 47.07 48.23 47.05 58.17 56.84 81.38 56.81 84.4 44.46 61.52 44.46 64.75 31.01 77.12 35.75 87.71 14.68 73.7 24.55 39.22 11.54 28.9 34.82 43.93 23.02 48.89 24.92 40.99 36.28 52.18 36.28 50.14 39.65 16.78 39.66 14.39 43.63 36.25 43.6 34.08 47.07"/><polygon fill="#8cc63f" points="12.91 39.73 4.47 39.7 2.1 43.63 10.57 43.64 12.91 39.73"/><path fill="#8cc63f" d="M64.12,73.24c1.41-1.5,1.36-3.93.32-5.62-1.15-1.48-2.65-2.61-3.88-4.02l-13.54-13.26H15.27s-2.45,3.98-2.45,3.98l17.31-.05c-.02,2.65,1.49,5.21,3.79,6.52,5.28,2.98,10.57,5.95,15.86,8.9l-18.6,14.8,27.82-8.92c1.77-.59,3.79-.91,5.13-2.34Z"/><path fill="#8cc63f" d="M32.34,63.54c-2.24-1.35-4.06-3.44-4.96-5.9L3.81,97.27l35.03-29.91c-2.17-1.27-4.35-2.51-6.49-3.81Z"/><polygon fill="#8cc63f" points="21.26 61.28 2.31 61.28 0 65.13 19.05 65.13 21.26 61.28"/><path fill="#8cc63f" d="M63.17,77.67c-4.34,1.57-13.18,4.31-13.18,4.31h31.89s3.09-12.65,3.09-12.65h-16.55c.48,3.61-1.88,7.14-5.25,8.35Z"/></g>
+        </svg>
+      </a>
+      <ul class="nav-links" id="navLinks">
+        <li><a href="#about">About</a></li>
+        <li><a href="#services">Services</a></li>
+        <li><a href="#pricing">Pricing</a></li>
+        <li><a href="#area">Service Area</a></li>
+        <li class="nav-cta-link"><a href="#contact" class="btn btn-primary">Book Now</a></li>
+      </ul>
+      <button class="mobile-menu-btn" id="menuBtn" aria-label="Toggle menu">
+        <span></span><span></span><span></span>
+      </button>
+    </div>
+  </nav>
+
+  <!-- HERO -->
+  <section class="hero">
+    <div class="hero-bg"></div>
+    <div class="hero-content">
+      <div class="hero-icon">
+        <!-- Asset 3: Green icon only -->
+        <svg viewBox="0 0 128.97 143.03" xmlns="http://www.w3.org/2000/svg">
+          <g><path fill="#8cc63f" d="M87.13,22.8c5.65,4.72,15.36,2.93,18.66-3.74,2.24-3.87,2.15-8.88-.16-12.69-2.34-4.72-8.05-7.17-13.14-6.15-5.72,1.03-10.33,6.59-10.06,12.44-.18,3.87,1.63,7.76,4.7,10.13Z"/><polygon fill="#8cc63f" points="50.12 69.22 70.92 69.18 85.53 83.58 119.66 83.53 124.11 65.37 90.46 65.37 95.22 45.59 113.4 52.57 128.97 21.59 108.37 36.1 57.66 16.97 42.49 51.2 64.6 33.84 71.89 36.64 60.27 53.34 76.72 53.34 73.73 58.31 24.68 58.32 21.16 64.16 53.3 64.12 50.12 69.22"/><polygon fill="#8cc63f" points="18.98 58.42 6.57 58.38 3.08 64.15 15.54 64.16 18.98 58.42"/><path fill="#8cc63f" d="M94.29,107.7c2.08-2.21,2.01-5.77.46-8.26-1.69-2.17-3.9-3.84-5.71-5.91l-19.92-19.5H22.45s-3.61,5.86-3.61,5.86l25.45-.08c-.02,3.9,2.19,7.66,5.57,9.59,7.77,4.38,15.54,8.75,23.33,13.09l-27.35,21.76,40.91-13.12c2.6-.87,5.57-1.34,7.54-3.43Z"/><path fill="#8cc63f" d="M47.55,93.44c-3.3-1.98-5.96-5.05-7.29-8.68L5.6,143.03l51.5-43.98c-3.19-1.86-6.4-3.69-9.55-5.61Z"/><polygon fill="#8cc63f" points="31.27 90.11 3.4 90.11 0 95.77 28.01 95.78 31.27 90.11"/><path fill="#8cc63f" d="M92.89,114.21c-6.39,2.31-19.38,6.33-19.38,6.33h46.9s4.55-18.6,4.55-18.6h-24.34c.7,5.31-2.77,10.5-7.72,12.27Z"/></g>
+        </svg>
+      </div>
+      <div class="hero-badge">Mobile Wellness &bull; Eagle River Valley, CO</div>
+      <h1>Recovery That Comes <em>to You</em></h1>
+      <p>Premium, science-backed recovery delivered directly to your Vail or Beaver Creek hotel, condo, or mountain home. Bounce back stronger without ever leaving the door.</p>
+      <div class="hero-buttons">
+        <a href="#contact" class="btn btn-primary">Book a Session</a>
+        <a href="#services" class="btn btn-outline">Explore Treatments</a>
+      </div>
+    </div>
+    <div class="hero-mountains">
+      <svg viewBox="0 0 1440 240" preserveAspectRatio="none" style="width:100%;height:160px;">
+        <path fill="rgba(0,31,56,0.25)" d="M0,160L80,149.3C160,139,320,117,480,122.7C640,128,800,160,960,165.3C1120,171,1280,149,1360,138.7L1440,128L1440,240L0,240Z"/>
+        <path fill="rgba(0,31,56,0.4)" d="M0,192L60,186.7C120,181,240,171,360,165.3C480,160,600,160,720,170.7C840,181,960,203,1080,202.7C1200,203,1320,181,1380,170.7L1440,160L1440,240L0,240Z"/>
+      </svg>
+    </div>
+    <div class="scroll-indicator">
+      <svg viewBox="0 0 24 24"><path d="M7 13l5 5 5-5M7 6l5 5 5-5"/></svg>
+    </div>
+  </section>
+
+  <!-- INTRO BAR -->
+  <section class="intro-bar">
+    <div class="intro-grid">
+      <div class="intro-item fade-up">
+        <div class="intro-icon">
+          <svg viewBox="0 0 24 24"><path d="M3 12l2-2m0 0l7-7 7 7M5 10v10a1 1 0 001 1h3m10-11l2 2m-2-2v10a1 1 0 01-1 1h-3m-4 0a1 1 0 01-1-1v-4a1 1 0 011-1h2a1 1 0 011 1v4a1 1 0 01-1 1"/></svg>
+        </div>
+        <h3>We Come to You</h3>
+        <p>Hotels, condos, vacation rentals, and private residences throughout the valley.</p>
+      </div>
+      <div class="intro-item fade-up">
+        <div class="intro-icon">
+          <svg viewBox="0 0 24 24"><path d="M9 12l2 2 4-4m5.618-4.016A11.955 11.955 0 0112 2.944a11.955 11.955 0 01-8.618 3.04A12.02 12.02 0 003 9c0 5.591 3.824 10.29 9 11.622 5.176-1.332 9-6.03 9-11.622 0-1.042-.133-2.052-.382-3.016z"/></svg>
+        </div>
+        <h3>Clinical-Grade Equipment</h3>
+        <p>HigherDOSE and Hyperice Normatec, the same equipment used by elite athletes.</p>
+      </div>
+      <div class="intro-item fade-up">
+        <div class="intro-icon">
+          <svg viewBox="0 0 24 24"><path d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z"/></svg>
+        </div>
+        <h3>60-90 Min Sessions</h3>
+        <p>Synergistic recovery protocols designed to maximize your recovery time.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- ABOUT -->
+  <section class="about" id="about">
+    <div class="about-grid">
+      <div class="about-visual fade-up">
+        <!-- Asset 2: White icon for dark background -->
+        <svg viewBox="0 0 128.97 143.03" xmlns="http://www.w3.org/2000/svg">
+          <g><path fill="#fff" d="M87.13,22.8c5.65,4.72,15.36,2.93,18.66-3.74,2.24-3.87,2.15-8.88-.16-12.69-2.34-4.72-8.05-7.17-13.14-6.15-5.72,1.03-10.33,6.59-10.06,12.44-.18,3.87,1.63,7.76,4.7,10.13Z"/><polygon fill="#fff" points="50.12 69.22 70.92 69.18 85.53 83.58 119.66 83.53 124.11 65.37 90.46 65.37 95.22 45.59 113.4 52.57 128.97 21.59 108.37 36.1 57.66 16.97 42.49 51.2 64.6 33.84 71.89 36.64 60.27 53.34 76.72 53.34 73.73 58.31 24.68 58.32 21.16 64.16 53.3 64.12 50.12 69.22"/><polygon fill="#fff" points="18.98 58.42 6.57 58.38 3.08 64.15 15.54 64.16 18.98 58.42"/><path fill="#fff" d="M94.29,107.7c2.08-2.21,2.01-5.77.46-8.26-1.69-2.17-3.9-3.84-5.71-5.91l-19.92-19.5H22.45s-3.61,5.86-3.61,5.86l25.45-.08c-.02,3.9,2.19,7.66,5.57,9.59,7.77,4.38,15.54,8.75,23.33,13.09l-27.35,21.76,40.91-13.12c2.6-.87,5.57-1.34,7.54-3.43Z"/><path fill="#fff" d="M47.55,93.44c-3.3-1.98-5.96-5.05-7.29-8.68L5.6,143.03l51.5-43.98c-3.19-1.86-6.4-3.69-9.55-5.61Z"/><polygon fill="#fff" points="31.27 90.11 3.4 90.11 0 95.77 28.01 95.78 31.27 90.11"/><path fill="#fff" d="M92.89,114.21c-6.39,2.31-19.38,6.33-19.38,6.33h46.9s4.55-18.6,4.55-18.6h-24.34c.7,5.31-2.77,10.5-7.72,12.27Z"/></g>
+        </svg>
+        <div class="about-visual-overlay">
+          <p>"Recover where you play."</p>
+        </div>
+      </div>
+      <div class="about-text fade-up">
+        <span class="section-label">About Us</span>
+        <h3>Bringing the Recovery Room to Your Living Room</h3>
+        <p>Eagle River Recovery is a mobile wellness and recovery service operating in the Eagle River Valley region of Colorado, from Vail to Gypsum.</p>
+        <p>We deliver premium, in-home or condo-based recovery sessions and short-term equipment rentals directly to you. Whether you just crushed a day on the mountain or need to recover from training, we bring clinical-grade equipment right to your door.</p>
+        <p>No need to travel to a fixed studio or spa. Our team arrives with everything you need for a full recovery session, sets up in minutes, and guides you through the experience.</p>
+        <div class="about-stats">
+          <div class="stat-item">
+            <div class="number">3</div>
+            <div class="label">Modalities</div>
+          </div>
+          <div class="stat-item">
+            <div class="number">60-90</div>
+            <div class="label">Min Sessions</div>
+          </div>
+          <div class="stat-item">
+            <div class="number">100%</div>
+            <div class="label">Mobile</div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- SERVICES -->
+  <section class="services" id="services">
+    <div class="section-header fade-up">
+      <span class="section-label">Our Treatments</span>
+      <h2>Science-Backed Recovery Modalities</h2>
+      <p>Each session combines clinical-grade equipment for a synergistic recovery experience tailored to your needs.</p>
+    </div>
+    <div class="services-grid">
+      <div class="service-card fade-up">
+        <div class="service-icon">
+          <svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="4"/><path d="M12 2v4M12 18v4M4.93 4.93l2.83 2.83M16.24 16.24l2.83 2.83M2 12h4M18 12h4M4.93 19.07l2.83-2.83M16.24 7.76l2.83-2.83"/></svg>
+        </div>
+        <h3>Infrared Sauna Blanket</h3>
+        <div class="service-brand">HigherDOSE</div>
+        <p>Deep infrared heat therapy for full-body detoxification, relaxation, and cellular recovery. Penetrates tissue to promote healing from the inside out.</p>
+        <ul class="service-benefits">
+          <li>Deep detoxification</li>
+          <li>Muscle relaxation</li>
+          <li>Improved sleep quality</li>
+          <li>Calorie burn and recovery</li>
+        </ul>
+      </div>
+      <div class="service-card fade-up">
+        <div class="service-icon">
+          <svg viewBox="0 0 24 24"><path d="M13 2L3 14h9l-1 8 10-12h-9l1-8z"/></svg>
+        </div>
+        <h3>Infrared PEMF Go Mat</h3>
+        <div class="service-brand">HigherDOSE</div>
+        <p>Pulsed Electromagnetic Field therapy combined with infrared heat for deep cellular repair. Reduces inflammation and accelerates the body's natural healing process.</p>
+        <ul class="service-benefits">
+          <li>Cellular repair and regeneration</li>
+          <li>Pain and inflammation relief</li>
+          <li>Enhanced energy levels</li>
+          <li>Faster recovery from injury</li>
+        </ul>
+      </div>
+      <div class="service-card fade-up">
+        <div class="service-icon">
+          <svg viewBox="0 0 24 24"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>
+        </div>
+        <h3>Compression Boots</h3>
+        <div class="service-brand">Hyperice Normatec Elite</div>
+        <p>Dynamic air compression technology used by elite athletes worldwide. Sequential pulse massage flushes lactic acid and improves circulation for faster leg recovery.</p>
+        <ul class="service-benefits">
+          <li>Lactic acid flush</li>
+          <li>Improved circulation</li>
+          <li>Reduced muscle soreness</li>
+          <li>Faster leg recovery</li>
+        </ul>
+      </div>
+    </div>
+  </section>
+
+  <!-- HOW IT WORKS -->
+  <section class="how-it-works">
+    <div class="section-header fade-up">
+      <span class="section-label">How It Works</span>
+      <h2>Recovery in Four Simple Steps</h2>
+      <p>From booking to bliss in minutes, not hours.</p>
+    </div>
+    <div class="steps">
+      <div class="step fade-up">
+        <div class="step-number">1</div>
+        <h4>Book Online</h4>
+        <p>Choose your session type and preferred time slot.</p>
+      </div>
+      <div class="step fade-up">
+        <div class="step-number">2</div>
+        <h4>We Come to You</h4>
+        <p>Our team arrives at your location with all equipment, ready to set up.</p>
+      </div>
+      <div class="step fade-up">
+        <div class="step-number">3</div>
+        <h4>Recover</h4>
+        <p>Relax while science-backed modalities do the work for you.</p>
+      </div>
+      <div class="step fade-up">
+        <div class="step-number">4</div>
+        <h4>Feel Amazing</h4>
+        <p>Bounce back stronger and ready for tomorrow's adventures.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- PRICING -->
+  <section class="pricing" id="pricing">
+    <div class="section-header fade-up">
+      <span class="section-label">Pricing</span>
+      <h2>Session Packages</h2>
+      <p>All sessions delivered to your location. No travel, no hassle, just recovery.</p>
+    </div>
+    <div class="pricing-grid">
+      <div class="pricing-card fade-up">
+        <h3>Single Modality</h3>
+        <div class="duration">45-60 minutes</div>
+        <div class="price">$125</div>
+        <div class="price-note">per session</div>
+        <ul class="pricing-features">
+          <li><svg class="check-icon" viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"/></svg> Choose one treatment</li>
+          <li><svg class="check-icon" viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"/></svg> In-home delivery</li>
+          <li><svg class="check-icon" viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"/></svg> Full setup and guidance</li>
+          <li><svg class="check-icon" viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"/></svg> Great for first-timers</li>
+        </ul>
+        <a href="#contact" class="btn btn-dark">Book Now</a>
+      </div>
+      <div class="pricing-card featured fade-up">
+        <div class="pricing-badge">Most Popular</div>
+        <h3>Full Recovery Combo</h3>
+        <div class="duration">60-90 minutes</div>
+        <div class="price">$275</div>
+        <div class="price-note">per session</div>
+        <ul class="pricing-features">
+          <li><svg class="check-icon" viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"/></svg> All three modalities</li>
+          <li><svg class="check-icon" viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"/></svg> Synergistic recovery protocol</li>
+          <li><svg class="check-icon" viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"/></svg> In-home delivery</li>
+          <li><svg class="check-icon" viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"/></svg> Personalized session plan</li>
+        </ul>
+        <a href="#contact" class="btn btn-primary">Book Now</a>
+      </div>
+      <div class="pricing-card fade-up">
+        <h3>Multi-Day Rental</h3>
+        <div class="duration">2-7 day rental</div>
+        <div class="price">$150</div>
+        <div class="price-note">per day</div>
+        <ul class="pricing-features">
+          <li><svg class="check-icon" viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"/></svg> Equipment delivered to you</li>
+          <li><svg class="check-icon" viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"/></svg> Use on your schedule</li>
+          <li><svg class="check-icon" viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"/></svg> Setup walkthrough included</li>
+          <li><svg class="check-icon" viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"/></svg> Perfect for ski trips</li>
+        </ul>
+        <a href="#contact" class="btn btn-dark">Book Now</a>
+      </div>
+    </div>
+  </section>
+
+  <!-- ADD-ONS -->
+  <section class="addons">
+    <div class="section-header fade-up">
+      <span class="section-label">Enhance Your Session</span>
+      <h2>Add-Ons</h2>
+    </div>
+    <div class="addons-grid">
+      <div class="addon-item fade-up">
+        <div>
+          <h4>Extra Compression Session</h4>
+          <p>Additional 30 min Normatec boots</p>
+        </div>
+        <div class="addon-price">+$50</div>
+      </div>
+      <div class="addon-item fade-up">
+        <div>
+          <h4>Extended Sauna Blanket</h4>
+          <p>Extra 20 min infrared session</p>
+        </div>
+        <div class="addon-price">+$45</div>
+      </div>
+      <div class="addon-item fade-up">
+        <div>
+          <h4>Couples Session</h4>
+          <p>Two people, same time slot</p>
+        </div>
+        <div class="addon-price">+$125</div>
+      </div>
+      <div class="addon-item fade-up">
+        <div>
+          <h4>Late Evening Session</h4>
+          <p>Bookings after 8pm</p>
+        </div>
+        <div class="addon-price">+$35</div>
+      </div>
+    </div>
+  </section>
+
+  <!-- SERVICE AREA -->
+  <section class="service-area" id="area">
+    <div class="section-header fade-up">
+      <span class="section-label">Where We Operate</span>
+      <h2>Eagle River Valley, Colorado</h2>
+      <p>We bring recovery to you anywhere in the valley, from Vail to Gypsum and everywhere in between.</p>
+    </div>
+    <div class="area-content fade-up">
+      <div class="area-towns">
+        <span class="area-tag">Vail</span>
+        <span class="area-tag">Beaver Creek</span>
+        <span class="area-tag">Avon</span>
+        <span class="area-tag">Edwards</span>
+        <span class="area-tag">Eagle</span>
+        <span class="area-tag">Gypsum</span>
+        <span class="area-tag">Minturn</span>
+        <span class="area-tag">Red Cliff</span>
+      </div>
+      <p class="area-note">Hotels, condos, vacation rentals, and private residences. We come to wherever you're staying.</p>
+    </div>
+  </section>
+
+  <!-- TESTIMONIAL -->
+  <section class="testimonial-section">
+    <div class="testimonial-content fade-up">
+      <div class="quote-mark">"</div>
+      <blockquote>After a full day on the mountain, there's nothing better than having recovery come to your door. My legs felt brand new the next morning.</blockquote>
+      <cite>Satisfied Client, Vail, CO</cite>
+    </div>
+  </section>
+
+  <!-- CTA -->
+  <section class="cta-section" id="contact">
+    <h2>Ready to Recover?</h2>
+    <p>Book your session today and experience premium recovery without leaving your door.</p>
+    <a href="mailto:info@eagleriverrecovery.com" class="btn btn-primary">Book a Session</a>
+    <div class="cta-contact">
+      <a href="tel:+19705551234">
+        <svg viewBox="0 0 24 24"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72c.127.96.361 1.903.7 2.81a2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0 1 22 16.92z"/></svg>
+        Call Us
+      </a>
+      <a href="mailto:info@eagleriverrecovery.com">
+        <svg viewBox="0 0 24 24"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg>
+        info@eagleriverrecovery.com
+      </a>
+    </div>
+  </section>
+
+  <!-- FOOTER -->
+  <footer>
+    <div class="footer-inner">
+      <a href="#" class="footer-logo">
+        <!-- Asset 5: small white logo -->
+        <svg viewBox="0 0 316.3 97.27" xmlns="http://www.w3.org/2000/svg">
+          <g><path fill="rgba(255,255,255,0.5)" d="M105.45,20.94h16.71v5.54h-10.86v3.93h8.67v5.57h-8.67v4.49h10.86v5.53h-16.71v-25.06Z"/><path fill="rgba(255,255,255,0.5)" d="M138.91,40.92h-7.31l-1.39,5.08h-6.06l7.8-25.06h6.82l7.8,25.06h-6.3l-1.36-5.08ZM137.44,35.38l-2.12-8.01-2.19,8.01h4.32Z"/><path fill="rgba(255,255,255,0.5)" d="M161.08,29.32v-2.3c0-.46-.26-.7-.77-.7h-5.26c-.49,0-.73.23-.73.7v12.84c0,.49.24.73.73.73h5.26c.51,0,.77-.23.77-.7v-2.99h-4v-5.26h9.85v9.57c0,1.44-.46,2.62-1.39,3.55-.9.9-2.09,1.36-3.55,1.36h-8.6c-1.46,0-2.65-.45-3.55-1.36-.93-.93-1.39-2.11-1.39-3.55v-15.53c0-1.44.46-2.62,1.39-3.55s2.11-1.39,3.55-1.39h8.6c1.44,0,2.62.46,3.55,1.39s1.39,2.11,1.39,3.55v3.62h-5.85Z"/><path fill="rgba(255,255,255,0.5)" d="M171.31,20.94h5.85v19.53h9.99v5.53h-15.84v-25.06Z"/><path fill="rgba(255,255,255,0.5)" d="M190.53,20.94h16.71v5.54h-10.86v3.93h8.67v5.57h-8.67v4.49h10.86v5.53h-16.71v-25.06Z"/><path fill="rgba(255,255,255,0.5)" d="M239.37,46l-6.2-.07-3.59-8.91h-3.1v8.91h-5.85v-25.06h13.12c1.44,0,2.61.46,3.52,1.39.9.93,1.36,2.11,1.36,3.55v6.3c0,1.07-.28,2.02-.84,2.85-.56.84-1.3,1.43-2.23,1.78l3.79,9.26ZM232.82,30.86v-3.76c0-.46-.24-.7-.73-.7h-5.6v5.15h5.6c.49,0,.73-.23.73-.7Z"/><path fill="rgba(255,255,255,0.5)" d="M243.13,46v-25.06h5.85v25.06h-5.85Z"/><path fill="rgba(255,255,255,0.5)" d="M273.62,20.94l-7.42,25.06h-6.75l-7.41-25.06h6.72l4.07,17.96,4.21-17.96h6.58Z"/><path fill="rgba(255,255,255,0.5)" d="M276.65,20.94h16.71v5.54h-10.86v3.93h8.67v5.57h-8.67v4.49h10.86v5.53h-16.71v-25.06Z"/><path fill="rgba(255,255,255,0.5)" d="M316.3,46l-6.2-.07-3.59-8.91h-3.1v8.91h-5.85v-25.06h13.12c1.44,0,2.61.46,3.52,1.39.9.93,1.36,2.11,1.36,3.55v6.3c0,1.07-.28,2.02-.84,2.85-.56.84-1.3,1.43-2.23,1.78l3.79,9.26ZM309.75,30.86v-3.76c0-.46-.24-.7-.73-.7h-5.6v5.15h5.6c.49,0,.73-.23.73-.7Z"/><path fill="rgba(255,255,255,0.5)" d="M124.25,78.99l-6.2-.07-3.59-8.91h-3.1v8.91h-5.85v-25.06h13.12c1.44,0,2.61.46,3.52,1.39.9.93,1.36,2.11,1.36,3.55v6.3c0,1.07-.28,2.02-.84,2.85-.56.84-1.3,1.43-2.23,1.78l3.79,9.26ZM117.71,63.85v-3.76c0-.46-.24-.7-.73-.7h-5.6v5.15h5.6c.49,0,.73-.23.73-.7Z"/><path fill="rgba(255,255,255,0.5)" d="M128.01,53.93h16.71v5.54h-10.86v3.93h8.67v5.57h-8.67v4.49h10.86v5.53h-16.71v-25.06Z"/><path fill="rgba(255,255,255,0.5)" d="M161.22,79.1h-8.28c-1.46,0-2.65-.45-3.55-1.36-.93-.93-1.39-2.11-1.39-3.55v-15.53c0-1.44.46-2.62,1.39-3.55.93-.93,2.11-1.39,3.55-1.39h8.28c1.44,0,2.62.46,3.55,1.39.93.93,1.39,2.11,1.39,3.55v4.53h-5.85v-3.2c0-.46-.24-.7-.73-.7h-4.94c-.49,0-.73.23-.73.7v12.88c0,.46.24.7.73.7h4.94c.49,0,.73-.23.73-.7v-3.2h5.85v4.53c0,1.44-.46,2.62-1.39,3.55-.9.91-2.09,1.36-3.55,1.36Z"/><path fill="rgba(255,255,255,0.5)" d="M183.25,79.1h-8.74c-1.46,0-2.65-.45-3.55-1.36-.93-.93-1.39-2.11-1.39-3.55v-15.53c0-1.44.46-2.62,1.39-3.55.93-.93,2.11-1.39,3.55-1.39h8.74c1.44,0,2.61.46,3.52,1.39.9.93,1.36,2.11,1.36,3.55v15.53c0,1.44-.45,2.62-1.36,3.55-.88.91-2.05,1.36-3.52,1.36ZM175.46,60.02v12.88c0,.46.24.7.73.7h5.4c.49,0,.73-.23.73-.7v-12.88c0-.46-.24-.7-.73-.7h-5.4c-.49,0-.73.23-.73.7Z"/><path fill="rgba(255,255,255,0.5)" d="M211.83,53.93l-7.42,25.06h-6.75l-7.41-25.06h6.72l4.07,17.96,4.21-17.96h6.58Z"/><path fill="rgba(255,255,255,0.5)" d="M214.86,53.93h16.71v5.54h-10.86v3.93h8.67v5.57h-8.67v4.49h10.86v5.53h-16.71v-25.06Z"/><path fill="rgba(255,255,255,0.5)" d="M254.51,78.99l-6.2-.07-3.59-8.91h-3.1v8.91h-5.85v-25.06h13.12c1.44,0,2.61.46,3.52,1.39.9.93,1.36,2.11,1.36,3.55v6.3c0,1.07-.28,2.02-.84,2.85-.56.84-1.3,1.43-2.23,1.78l3.79,9.26ZM247.97,63.85v-3.76c0-.46-.24-.7-.73-.7h-5.6v5.15h5.6c.49,0,.73-.23.73-.7Z"/><path fill="rgba(255,255,255,0.5)" d="M268.78,78.99h-5.85v-8.46l-7.41-16.6h6.37l3.97,10.06,3.97-10.06h6.37l-7.42,16.6v8.46Z"/></g>
+          <g><path fill="rgba(140,198,63,0.4)" d="M59.25,15.51c3.84,3.21,10.45,1.99,12.69-2.54,1.52-2.63,1.46-6.04-.11-8.63-1.59-3.21-5.47-4.87-8.94-4.18-3.89.7-7.03,4.48-6.84,8.46-.12,2.63,1.11,5.28,3.2,6.89Z"/><polygon fill="rgba(140,198,63,0.4)" points="34.08 47.07 48.23 47.05 58.17 56.84 81.38 56.81 84.4 44.46 61.52 44.46 64.75 31.01 77.12 35.75 87.71 14.68 73.7 24.55 39.22 11.54 28.9 34.82 43.93 23.02 48.89 24.92 40.99 36.28 52.18 36.28 50.14 39.65 16.78 39.66 14.39 43.63 36.25 43.6 34.08 47.07"/><polygon fill="rgba(140,198,63,0.4)" points="12.91 39.73 4.47 39.7 2.1 43.63 10.57 43.64 12.91 39.73"/><path fill="rgba(140,198,63,0.4)" d="M64.12,73.24c1.41-1.5,1.36-3.93.32-5.62-1.15-1.48-2.65-2.61-3.88-4.02l-13.54-13.26H15.27s-2.45,3.98-2.45,3.98l17.31-.05c-.02,2.65,1.49,5.21,3.79,6.52,5.28,2.98,10.57,5.95,15.86,8.9l-18.6,14.8,27.82-8.92c1.77-.59,3.79-.91,5.13-2.34Z"/><path fill="rgba(140,198,63,0.4)" d="M32.34,63.54c-2.24-1.35-4.06-3.44-4.96-5.9L3.81,97.27l35.03-29.91c-2.17-1.27-4.35-2.51-6.49-3.81Z"/><polygon fill="rgba(140,198,63,0.4)" points="21.26 61.28 2.31 61.28 0 65.13 19.05 65.13 21.26 61.28"/><path fill="rgba(140,198,63,0.4)" d="M63.17,77.67c-4.34,1.57-13.18,4.31-13.18,4.31h31.89s3.09-12.65,3.09-12.65h-16.55c.48,3.61-1.88,7.14-5.25,8.35Z"/></g>
+        </svg>
+      </a>
+      <p class="footer-text">2026 Eagle River Recovery. All rights reserved. Eagle River Valley, Colorado.</p>
+      <ul class="footer-links">
+        <li><a href="#about">About</a></li>
+        <li><a href="#services">Services</a></li>
+        <li><a href="#pricing">Pricing</a></li>
+        <li><a href="#contact">Contact</a></li>
+      </ul>
+    </div>
+  </footer>
+
+  <script>
+    // Nav scroll
+    const nav = document.getElementById('nav');
+    window.addEventListener('scroll', () => {
+      nav.classList.toggle('scrolled', window.scrollY > 60);
+    });
+
+    // Mobile menu
+    const menuBtn = document.getElementById('menuBtn');
+    const navLinks = document.getElementById('navLinks');
+    menuBtn.addEventListener('click', () => navLinks.classList.toggle('active'));
+    navLinks.querySelectorAll('a').forEach(link => {
+      link.addEventListener('click', () => navLinks.classList.remove('active'));
+    });
+
+    // Scroll animations
+    const observer = new IntersectionObserver((entries) => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) entry.target.classList.add('visible');
+      });
+    }, { threshold: 0.1, rootMargin: '0px 0px -40px 0px' });
+
+    document.querySelectorAll('.fade-up').forEach(el => observer.observe(el));
+  </script>
+
+</body>
+</html>
